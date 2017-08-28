@@ -1,0 +1,17 @@
+<mvc:View
+displayBlock="true"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m"
+controllerName="MyApp.webapp.controller.app">
+
+
+<Button text="Login" press="onLogin" />
+
+<Carousel>
+<Image src="http://www.vikingsbasketball.net.au/2010/wp-content/uploads/2011/12/East-Coast.jpg"/> 
+<Image src="http://www.designsponge.com/wp-content/uploads/the-kangaroo-hop-australia.jpg" />
+<Image src="https://www.mapsofworld.com/australia/cities/cities-in-australia.jpg" />
+</Carousel>
+
+
+</mvc:View>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>SAPUI5 in 20 Seconds</title>
+
+    <!-- Boot stra -->
+    <script id="sap-ui-bootstrap"
+        type="text/javascript"
+        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_bluecrystal"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-preload="async"
+        data-sap-ui-resourceroots='{"MyApp.webapp" : "./"}'></script>
+
+
+    <!-- 2.) Create a UI5 button and place it onto the page -->
+    <script>
+       sap.ui.getCore().attachInit( function(){
+             new sap.ui.core.ComponentContainer({ 
+               name : "MyApp.webapp"
+           }).placeAt("content"); 
+           
+       });
+    </script>
+
+</head>
+<body class="sapUiBody" id = "content">
+
+    <!-- This is where you place the UI5 button -->
+    
+    
+</body>
+</html>
