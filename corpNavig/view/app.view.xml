@@ -7,19 +7,20 @@ displayBlock="true"
     xmlns="sap.m"
 controllerName="MyApp.corpNavig.controller.app">
 
-	<l:VerticalLayout
-		class = "sapUiResponsiveMargin"
-		visible="true"
-		
-		width="50%">
-		<l:content >
-				<Input
-				id="userName"
-				type="Text"
-				placeholder="User Name" >
-			</Input>
-		</l:content>
-	</l:VerticalLayout>
+	<App backgroundImage = "./Accenture.jpg"> 
+		<pages>
+			<Page title="Coprporate Navigator">
+				<content>
+					<VBox class="sapUiMediumMargin" alignItems="center">
+						<Input value = "{login>/userName}" placeholder=" Username" width = "33%"/>
+						<Input value = "{login>/password}" placeholder=" Password" type="Password" width = "33%" />
+						<Button text="Log On" type="Default" press="onLogin"/>
+					</VBox>
+				</content>
+				
+			</Page>
+		</pages>
+	</App>
 
 
 </mvc:View>
