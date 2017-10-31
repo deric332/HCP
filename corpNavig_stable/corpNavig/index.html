@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Corporate Navigator</title>
+<!-- Boot strap -->
+   <script id="sap-ui-bootstrap"
+        type="text/javascript"
+        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_belize"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-preload="async"
+        data-sap-ui-resourceroots='{"MyApp.corpNavig" : "./"}'></script>
+    
+    <script>
+    sap.ui.getCore().attachInit( function(){
+             new sap.ui.core.ComponentContainer({ 
+               name : "MyApp.corpNavig"
+           }).placeAt("content"); 
+           
+       });
+
+    </script>
+
+</head>
+
+
+<body class="sapUiBody" id = "content">
+
+    <!-- This is where you place the UI5 button -->
+    
+    
+</body>
+
+</html>

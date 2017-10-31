@@ -1,0 +1,20 @@
+<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:al="sap.ui.commons.layout.VAlign"
+	xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="MyApp.corpNavig.controller.app">
+	<App backgroundImage="./img/cust111.jpg" id="app">
+		<pages>
+			<Page showHeader="false">
+				<content>
+					
+						<VBox fitContainer="true" alignItems="Center" height="100%" justifyContent="Center">
+							<!--<Panel backgroundDesign = "Transparent" class="sapUiResponsiveMargin" width="100%">-->
+							<Input id = "test" placeholder="Username" value="{login>/userName}"  width="25rem"></Input>
+							<Input value="{login>/password}"  placeholder="Password" type="Password" width="25rem"/>
+							<Button   text="Log On" type="Default" press="onLogin" width="25rem"/>
+							<!--</Panel>-->
+						</VBox>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

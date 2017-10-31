@@ -1,26 +1,32 @@
-<mvc:View
-displayBlock="true"
-    xmlns:mvc="sap.ui.core.mvc"
-	xmlns:l="sap.ui.layout"
-	xmlns:al="sap.ui.commons.layout.VAlign"
-	xmlns:core="sap.ui.core"
-    xmlns="sap.m"
-controllerName="MyApp.corpNavig.controller.app">
-
-	<App backgroundImage = "./Accenture.jpg"> 
+<mvc:View displayBlock="true" 
+		xmlns:mvc="sap.ui.core.mvc" 
+		xmlns:l="sap.ui.layout" 
+		xmlns:al="sap.ui.commons.layout.VAlign"
+		xmlns:core="sap.ui.core" 
+		xmlns:html="http://www.w3.org/1999/xhtml" 
+		xmlns:u="sap.ui.unified"
+		xmlns="sap.m" 
+		controllerName="MyApp.corpNavig.controller.app">
+	<App backgroundImage="./img/cust111.jpg" id="app">
 		<pages>
-			<Page title="Coprporate Navigator">
-				<content>
-					<VBox class="sapUiMediumMargin" alignItems="center">
-						<Input value = "{login>/userName}" placeholder=" Username" width = "33%"/>
-						<Input value = "{login>/password}" placeholder=" Password" type="Password" width = "33%" />
-						<Button text="Log On" type="Default" press="onLogin"/>
+			<Page showHeader="true">
+				<headerContent>
+						<!--<html:div id="render-link">h</html:div>-->
+						<Button icon="sap-icon://fa/user3" tooltip="Register" press="onRegister"/>
+						<Button icon="sap-icon://fa/excla" tooltip="Reset Password" press="onExcla"/>
+					</headerContent>
+				<content >
+					
+					<!--<html:div id="render-link"></html:div>-->
+					<VBox  fitContainer="true" alignItems="Center" height="100%" justifyContent="Center">
+						<!--<Panel backgroundDesign = "Transparent" class="sapUiResponsiveMargin" width="100%">-->
+						<Input class="login" id="test" placeholder="Username" value="{login>/userName}" width="25rem" required="true"></Input>
+						<Input class="login" value="{login>/password}" placeholder="Password" type="Password" width="25rem" required="true"/>
+						<Button text="Log On" type="Default" press="onLogin" width="25rem" class="button4"></Button>
+						<!--<Button  text="Drive" type="Default" press="onDrive" width="25rem" class="button4" ></Button>-->
 					</VBox>
 				</content>
-				
 			</Page>
 		</pages>
 	</App>
-
-
 </mvc:View>

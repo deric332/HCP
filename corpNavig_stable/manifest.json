@@ -1,0 +1,92 @@
+{
+	"_version": "1.3.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "MyApp.corpNavig",
+		"type": "application",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.46.11",
+		"rootView": {
+			"viewName": "MyApp.corpNavig.view.app",
+			"type": "XML",
+			"id": "app"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "MyApp.corpNavig.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "show"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "login",
+				"target": "login"
+			}, {
+				"pattern": "second",
+				"name": "second",
+				"target": "second"
+			}],
+			"targets": {
+				"login": {
+					"viewName": "app",
+					"viewLevel": 1
+				},
+				"second": {
+					"viewName": "oView"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css" 
+			}]
+		},
+		"autoPrefixId": true,
+		"dependencies": {
+			"minUI5Version": "1.34",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.34.0"
+				},
+				"sap.m": {
+					"minVersion": "1.34.0"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.34.0"
+				}
+			}
+		},
+		"models": {
+			"login": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/login.json"
+			}
+		},
+
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	}
+}

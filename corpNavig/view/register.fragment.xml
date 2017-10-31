@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified"
+	controllerName="MyApp.corpNavig.controller.app" class="viewPadding">
+	<Popover class="sapUiContentPadding" placement="Bottom" title="Registration">
+		<l:VerticalLayout class="login">
+			<Input id="firstName" type="Text" placeholder="First Name"/>
+			<Input id="lastName" type="Text" placeholder="Last Name"/>
+			<Input id="email" type="Text" placeholder="Email ID"/>
+			<Input id="pass" type="Password" placeholder="Password"/>
+			<Input id="cPass" type="Password" placeholder="Confirm Password"/>
+			<u:FileUploader id="fileUploader" 
+				name="myFileUpload" 
+				uploadUrl="upload/" 
+				width="400px" 
+				tooltip="Upload Profile Picture"
+				uploadComplete="handleUploadComplete"
+				change="onFileChanged"/>
+			<Button class="uploadButtonStyle" text="Register" press="onRegisterSubmit"/>
+		</l:VerticalLayout>
+	</Popover>
+</core:FragmentDefinition>

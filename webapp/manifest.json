@@ -25,9 +25,38 @@
 	"sap.ui5": {
 		"_version": "1.46.11",
 		"rootView": {
-			"viewName": "MyApp.webapp.view.app",
+			"viewName": "MyApp.corpNavig.view.app",
 			"type": "XML",
 			"id": "app"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "MyApp.corpNavig.view",
+				"controlId": "corpNavig",
+				"controlAggregation": "pages",
+				"transition": "slide"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "login",
+				"target": "login"
+			},
+			{
+   "pattern": "second",
+   "name": "second",
+   "target": "second"
+  }],
+			"targets": {
+				"login": {
+					"viewName": "app",
+					"viewLevel": 1
+				},
+				"second": {
+					"viewName": "oView"
+				}
+			}
 		},
 		"autoPrefixId": true,
 		"dependencies": {
@@ -48,5 +77,11 @@
 			"compact": true,
 			"cozy": true
 		}
+	},
+	"resources": {
+		"css": [{
+			"uri": "css.style.css"
+		}]
 	}
+
 }

@@ -1,0 +1,74 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	controllerName="MyApp.corpNavig.controller.oView">
+	<App id="app" backgroundImage="./img/appBG.jpg">
+		<pages>
+			<Page id="oView" title="Corporate Navigator" design="Header">
+				<!--<HBox>-->
+				<!--	<ImageContent class="sapUiLargeMarginTop sapUiLargeMarginBottom" src="./img/people.png" description="People Centre" press="press"></ImageContent>-->
+				<!--	<ImageContent class="sapUiLargeMarginTop sapUiLargeMarginBottom" src="./img/finance.png" description="Finance" press="press"></ImageContent>-->
+				<!--	<ImageContent class="sapUiLargeMarginTop sapUiLargeMarginBottom" src="./img/innovation.png" description="Innovations" press="press"></ImageContent>-->
+				<!--</HBox>	-->
+				<!--<HBox justifyContent="Center" fitContainer="true">-->
+				<FlexBox height="100%" alignItems="Center" justifyContent="Center" fitContainer="true" wrap="Wrap">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myappcenter" header="	Leadership"  press="press" >
+						<tileContent>
+							<TileContent >
+								<content>
+									<ImageContent src="./img/people.png"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myappcenter" header="	Innovations"  press="press">
+						<tileContent>
+							<TileContent >
+								<content>
+									<ImageContent src="./img/innovation.png"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myappcenter" header="	Financial Reports"  press="press">
+						<tileContent>
+							<TileContent >
+								<content>
+									<ImageContent src="./img/finance.png"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<!---->
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myappcenter" header="	Sales Leads"  press="press">
+						<tileContent>
+							<TileContent >
+								<content>
+									<ImageContent src="./img/Leads.png"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<!---->
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myappcenter" header="	Sales Opportunities"  press="press">
+						<tileContent>
+							<TileContent >
+								<content>
+									<ImageContent src="./img/opportunity.png"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<!---->
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myappcenter " header="	CRM Dashboard"  press="onTileCrm">
+						<tileContent>
+							<TileContent >
+								<content>
+									<ImageContent src="./img/dashboard.png"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+				</FlexBox>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,236 @@
+<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:al="sap.ui.commons.layout.VAlign"
+	xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:micro="sap.suite.ui.microchart"
+	controllerName="MyApp.corpNavig.controller.dash">
+	<App id="app" backgroundImage="./img/appBG.jpg" homeIcon="//home">
+		<pages>
+			<Page class="custDashTitle" showHeader="true" title="Corporate Navigator" textAlign="Begin" showNavButton="false">
+				<headerContent>
+					<Button icon="sap-icon://fa/home"		tooltip="Log off"		press="onHome"/>
+					<Button icon="sap-icon://fa/upload" 	tooltip="upload"		press="onUpload"/>
+					<Button icon="sap-icon://fa/print"		tooltip="print" 		press="onPrint"/>
+					<Button icon="sap-icon://fa/logoff" 	tooltip="Log off"		press="onLogOff"/>
+					<Button id ="pImage" icon="{/image}" 	tooltip="My Profile"	press="onProfile"/>
+				</headerContent>
+				<content>
+					<HBox class=" sapUiTinyMargin" fitContainer="true" alignItems="top" height="5%" justifyContent="Left" wrap="Wrap">
+						<HBox wrap="Wrap">
+							<!--<l:content>-->
+							<!--<Label text="Business Unit" labelFor="BUnit"/>-->
+							<VBox class="sapUiTinyMarginEnd">
+								<Input value="{/bUnit}" class="dash" id="bUnit" type="Text" textFormatMode="KeyValue" placeholder="Business Unit" showSuggestion="true"
+									showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{/}" suggestionItemSelected="suggestionItemSelected"
+									valueHelpOnly="true">
+									<suggestionItems>
+										<core:ListItem key="{buCd}" text="{busiUnit}" additionalText="{buCd}"/>
+									</suggestionItems>
+								</Input>
+							</VBox>
+							<!--<Label text="Selected Key : "/>-->
+							<Text id="selectedKey"/>
+							<ComboBox class="sapUiTinyMarginEnd dash bord" id="mycom" items="{path:'/monthSet'}" placeholder="Month" change="onChangeMonth">
+								<core:Item key="{keyMonth}" text="{month}"/>
+							</ComboBox>
+							<ComboBox class="sapUiTinyMarginEnd dash bord" id="lastYears" items="{/yearlist}" placeholder="Year" change="onChangeYear">
+								<core:Item key="{key}" text="{year}"/>
+							</ComboBox>
+							<!--</l:content>-->
+							<HBox class="sapUiTinyMarginEnd">
+								<Switch id="id_switch" class="swi" state="true" customTextOn="YTD" customTextOff="MTD" change="onChangeYTD">
+									<layoutData>
+										<FlexItemData growFactor="1"/>
+									</layoutData>
+								</Switch>
+							</HBox>
+						</HBox>
+						<HBox>
+							<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class=" myIconBar" select="onTabSelect">
+								<items>
+									<IconTabFilter id="FINA" text="Financial Accounting">
+										<VBox >
+											<Table class="custTab" id="salesList" inset="false" items="{path:'/'}">
+												<columns>
+													<Column width="12em">
+														<Text text="Income Statement"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Actual"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Plan"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Forecast"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="AP ratio"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<ObjectIdentifier title="{kpiKey}"/>
+															<ObjectIdentifier text="{ccActual}"/>
+															<ObjectIdentifier text="{ccPlanned}"/>
+															<ObjectIdentifier text="{ccForecast}"/>
+															<l:HorizontalLayout>
+																<micro:RadialMicroChart size="S" percentage="{ccApPcent}" press="press" class="sapUiNoMargin"></micro:RadialMicroChart>
+															</l:HorizontalLayout>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</VBox>
+									</IconTabFilter>
+									<IconTabFilter id="CALM" text="Cash and Liquidity">
+										<VBox >
+											<Table class="custTab" id="cashLiquidity" inset="false" items="{path:'/'}">
+												<columns>
+													<Column width="12em">
+														<Text text="Income Statement"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Actual"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Plan"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Forecast"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="AP ratio"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<ObjectIdentifier title="{kpiKey}"/>
+															<ObjectIdentifier text="{ccActual}"/>
+															<ObjectIdentifier text="{ccPlanned}"/>
+															<ObjectIdentifier text="{ccForecast}"/>
+															<l:HorizontalLayout>
+																<micro:RadialMicroChart size="S" percentage="{ccApPcent}" press="press" class="sapUiNoMargin"></micro:RadialMicroChart>
+															</l:HorizontalLayout>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</VBox>
+									</IconTabFilter>
+									<IconTabFilter id="MAPE" text="Management Accounting">
+										<VBox >
+											<Table class="custTab" id="manAcc" inset="false" items="{path:'/'}">
+												<columns>
+													<Column width="12em">
+														<Text text="Income Statement"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Actual"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Plan"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Forecast"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="AP ratio"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<ObjectIdentifier title="{kpiKey}"/>
+															<ObjectIdentifier text="{ccActual}"/>
+															<ObjectIdentifier text="{ccPlanned}"/>
+															<ObjectIdentifier text="{ccForecast}"/>
+															<l:HorizontalLayout>
+																<micro:RadialMicroChart size="S" percentage="{ccApPcent}" press="press" class="sapUiNoMargin"></micro:RadialMicroChart>
+															</l:HorizontalLayout>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</VBox>
+									</IconTabFilter>
+									<IconTabFilter id="NSAR" text="Compliance and Program">
+										<VBox >
+											<Table class="custTab" id="compProg" inset="false" items="{path:'/'}">
+												<columns>
+													<Column width="12em">
+														<Text text="Income Statement"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Actual"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Plan"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Forecast"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="AP ratio"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<ObjectIdentifier title="{kpiKey}"/>
+															<ObjectIdentifier text="{ccActual}"/>
+															<ObjectIdentifier text="{ccPlanned}"/>
+															<ObjectIdentifier text="{ccForecast}"/>
+															<l:HorizontalLayout>
+																<micro:RadialMicroChart size="S" percentage="{ccApPcent}" press="press" class="sapUiNoMargin"></micro:RadialMicroChart>
+															</l:HorizontalLayout>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</VBox>
+									</IconTabFilter>
+									<IconTabFilter id="NSAC" text="Net Sales">
+										<VBox >
+											<Table class="custTab" id="netSale" inset="false" items="{path:'/'}">
+												<columns>
+													<Column width="12em">
+														<Text text="Income Statement"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Actual"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Plan"/>
+													</Column>
+													<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+														<Text text="Forecast"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="AP ratio"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<ObjectIdentifier title="{kpiKey}"/>
+															<ObjectIdentifier text="{ccActual}"/>
+															<ObjectIdentifier text="{ccPlanned}"/>
+															<ObjectIdentifier text="{ccForecast}"/>
+															<l:HorizontalLayout>
+																<micro:RadialMicroChart size="S" percentage="{ccApPcent}" press="press" class="sapUiNoMargin"></micro:RadialMicroChart>
+															</l:HorizontalLayout>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</VBox>
+									</IconTabFilter>
+								</items>
+							</IconTabBar>
+						</HBox>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

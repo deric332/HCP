@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Buisiness Units"
+		class="sapUiPopupWithPadding"
+
+		items="{/}"  
+		search="_handleValueHelpSearch"
+		confirm="handleClose"
+		cancel="handleClose">
+		<StandardListItem
+			title="{buCd}"
+			description="{busiUnit}" />
+	</SelectDialog>
+</core:FragmentDefinition>
